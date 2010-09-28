@@ -21,8 +21,9 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 #include <string>
 
 namespace pilal {
-    
-    struct SizeMismatchException {
+
+	/** Struct representing a size mismatch exception. */
+	struct SizeMismatchException {
     };
     
 }

@@ -18,7 +18,7 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef PILAL_H
 #define PILAL_H
 
-// Classes
+/** Phony header which includes fundamental PILAL headers. */
 #include "matrix.h"
 #include "pilalexceptions.h"
 
