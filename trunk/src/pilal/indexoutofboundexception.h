@@ -20,7 +20,8 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace pilal {
     
-    struct IndexOutOfBoundException {
+	/** Struct which represents an index out of bound exception. */
+	struct IndexOutOfBoundException {
         
     };
     

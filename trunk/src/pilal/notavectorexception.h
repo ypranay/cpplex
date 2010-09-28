@@ -19,7 +19,8 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 #define NOT_A_VECTOR_EXCEPTION_H
 
 namespace pilal {
-    
+
+	/** Struct which represents a not-a-vector exception. */    
     struct NotAVectorException {
         
     };

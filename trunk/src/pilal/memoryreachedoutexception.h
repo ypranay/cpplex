@@ -19,7 +19,8 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 #define MEMORY_REACHED_OUT_EXCEPTION_H
 
 namespace pilal {
-    
+
+ 	/** Struct which represents a memory allocation problem. */   
     struct MemoryReachedOutException {
         
     };

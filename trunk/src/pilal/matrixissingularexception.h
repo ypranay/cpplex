@@ -19,7 +19,8 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_IS_SINGULAR_EXCEPTION_H
 
 namespace pilal {
-    
+	
+    /** Struct which represents an exception which is raised when the matrix is not singular. */
     struct MatrixIsSingularException {
         
     };

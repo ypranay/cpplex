@@ -15,6 +15,7 @@ You should have received a copy of the GNU General Public License
 along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+/** Phony header which includes fundamental PILAL exception headers. */
 #include "divisionbyzeroexception.h"
 #include "indexoutofboundexception.h"
 #include "matrixnotsquareexception.h"

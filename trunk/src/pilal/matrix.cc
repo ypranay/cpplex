@@ -63,7 +63,6 @@ namespace pilal {
 	    
 	}
 	
-	// Constructors, copy-constructor, destructor
 	Matrix::Matrix(int n) :	
         lu_up_to_date(false),
 	    determinant_up_to_date(false),
@@ -874,8 +873,7 @@ namespace pilal {
         // Copy transposed l
         l_inverse.transpose();
                 
-        // Set reciprocals on the diagonal of u (useless in l since diagonal
-        // elements are ones)
+        // Set reciprocals on the diagonal of u (useless in l since diagonal elements are ones)
         for (int i = 0; i < rows; ++i)
             u_inverse(i,i) = 1/u_inverse(i,i);
         
@@ -938,7 +936,6 @@ namespace pilal {
 	
 	/*
 	    Matrix::storage_accessor
-	    
 	*/
 	Matrix::storage_accessor::storage_accessor(long double& dest, Matrix& parent) : 
 	    dest(dest), 

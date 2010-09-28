@@ -20,6 +20,7 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace pilal {
     
+	/** Struct which represents a matrix not square exception. */
     struct MatrixNotSquareException {
         
     };
