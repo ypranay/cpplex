@@ -77,7 +77,7 @@ namespace optimization {
     }
     
     bool Simplex::has_solutions() const {
-        return not overconstrained;
+        return !overconstrained;
     }                        
     
     bool Simplex::is_unlimited() const {
@@ -93,18 +93,15 @@ namespace optimization {
     }                    
     
     void Simplex::load_problem( char const * problem_name ) {
-        
-        string file_name(problem_name);
-        file_name += ".problem";
                        
-        if ( file_exists ( file_name.c_str() )  )
+        if ( file_exists ( problem_name )  )
             throw ( DataMismatchException( "file not found." ) );
         
         /*
             File parsing
         */
         
-        ifstream file(file_name.c_str());
+        ifstream file(problem_name);
         
         ParsingContext current_parsing_block;       
         int current_var = 0, solution_dimension = 0;
@@ -355,10 +352,9 @@ namespace optimization {
                 for ( mit = constraints.begin(); mit != constraints.end(); ++mit)
                     if ( mit != it )
                         mit->add_column(0);
-                
+
                 for ( mit = nn_constraints.begin(); mit != nn_constraints.end(); ++mit)
-                    if ( mit != it )
-                        mit->add_column(0);
+					mit->add_column(0);
                                             
                 // Add a 1 column to the current
                 it->add_column(-1);
@@ -381,6 +377,7 @@ namespace optimization {
             } else if ( it->type == CT_LESS_EQUAL ) {
                 
                 vector<Constraint>::iterator mit;
+
                 // Add empty column to all regular constraints except the current
                 for ( mit = constraints.begin(); mit != constraints.end(); ++mit)
                     if ( mit != it )

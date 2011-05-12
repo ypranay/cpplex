@@ -15,44 +15,46 @@ You should have received a copy of the GNU General Public License
 along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef OBJECTIVE_FUNCTION_H
-#define OBJECTIVE_FUNCTION_H
+#ifndef CONSTRAINT_H
+#define CONSTRAINT_H
 
-#include "../pilal/pilal.h"
+#include "pilal.h"
 using pilal::Matrix;
 
 namespace optimization {
 
-    enum ObjectiveFunctionType {
-    
-        OFT_MAXIMIZE,
-        OFT_MINIMIZE
-    
+    enum ConstraintType {
+        
+        CT_LESS_EQUAL,
+        CT_MORE_EQUAL,
+        CT_EQUAL,
+        CT_NON_NEGATIVE,
+        CT_BOUNDS     
+           
     };
-    
-    class ObjectiveFunction {
+        
+            
+    class Constraint {
         
         friend class Simplex;
         
         public:
                 
-            ObjectiveFunction();
-            ObjectiveFunction( ObjectiveFunctionType type, Matrix const & costs );
-            ObjectiveFunction& operator=( ObjectiveFunction const & objective_function );
-            
-            // Solution value
-            Matrix const & get_value( Matrix const & x ) const;
-            
-            // Manipulation
-            void add_column(long double value);
+            Constraint( Matrix const & coefficients, ConstraintType type, long double value );
+            Constraint( Matrix const & coefficients, ConstraintType type, long double lower, long double upper );
             
             // Debug
-            void log() const;        
-                                    
+            void log() const; 
+            void add_column(long double value);
+            int size() const; 
+            
         private:
                 
-            ObjectiveFunctionType type;
-            Matrix costs;
+            ConstraintType type;
+            Matrix coefficients;
+            long double value;
+            long double upper;
+            long double lower;        
             
     };
 

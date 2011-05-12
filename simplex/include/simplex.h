@@ -19,7 +19,7 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 #define SIMPLEX_H
 
 // PILAL
-#include "../pilal/pilal.h"
+#include "pilal.h"
 
 // Simplex classes
 #include "simplexexceptions.h"

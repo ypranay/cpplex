@@ -1,31 +1,34 @@
 Introduction
 ============
 
-At the very current status the project is composed by two chunks:
+At the very current status the project is composed by three chunks:
 
     *   PILAL   (Pathetically Inadequate Linear Algebra Library)
     *   Simplex (The real simplex algorithm implementation)
+    *   The solver
 
-Simplex depends on PILAL and they are linked statically, soon or later they will
-become libraries but I need to work more on the Makefile and this is not a prio-
-rity. I would like to add some more optimization to PILAL: 
+Simplex depends on PILAL, whilst the solver depends on Simplex. The project can 
+be built either under Windows (there is a MS Visual Studio 2008 solution which
+can be automatically coverted to a 2010 solution without complications), Linux 
+(make) or MacOS (make).
 
-    *   Matrix shape detection (triangular, diagonal, identity, ...)
-    *   Optimization of procedures based on shape detection
+The project is currently working acceptably, however some optimizations and 
+improvements could be added in the future:
 
-The simplex algorithm implementation is working but I want to add some optimiza-
-tion to it as well:
-
-    *   Strategies for upper and lower limitation of variables
+    *   Optimization to exploit upper and lower limitations in variables
     *   Branch-and-bound for integer linear programming
-	*	Multi-threading
+	*	Multi-threading (for branch and bound?)
+	*   PILAL and Simplex compiled as libraries under MacOS and Linux
+	*   Better language to define problems
+	*   Doxygen documentation
 
-Basically, anything that can improve the performances is well accepted.
+Basically, anything that can improve performance and usability is a good
+feature candidate.
 
 How to use it
 =============
 
-All you have to do to compile the classes and the test is:
+All you have to do to compile the project is:
 
     make
     
@@ -33,22 +36,22 @@ If you want to clean up all the dependencies files and object files just type:
 
     make wipe
     
-The Makefile is quite flexible so anything you will write in a .cc file under 
-the src/ directory tree will be compiled to bin/. The lib/ directory was used
-before to compile the dynamic libraries, and will be used again soon or later
-for the same job. To execute the solver with a problem file (look for some
-example problems in the problems/ directory) run:
+The "lib" directory was used in a previous Linux version to compile PILAL and 
+Simplex as libraries, but was discontinued because I wanted the Makefile to
+work under MacOS as well and I had not enough time to learn how to write
+portable Makefiles. "lib" is currently used by the Visual Studio solution to
+compile PILAL and Simplex as static libraries. Once you have built the project,
+to execute the solver with a problem file (look for some example problems in 
+the "problems" directory) run under MacOS or Linux:
 
-    ./bin/solver problems/<name_of_the_problem>
+    ./solver <name_of_the_problem_file>
     
-If the problem file is small.problem, the <name_of_the_problem> will be small
-(don't specify the extension). If you want to keep solving a problem while
-still modifying the .problem file run:
+Under Windows:
 
-    ./bin/repeat_solver problems/<name_of_the_problem>
-
-which is a Perl script. Problems have a quite straightforward structure, so
-learning by example is probably ok.
+    solver.exe <name_of_the_problem_file>
+    
+Problems have a very straightforward structure, therefore you can learn the
+syntax from the examples in the "problems" or from the Google Code page.
 
 License
 =======

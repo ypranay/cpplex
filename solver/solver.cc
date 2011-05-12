@@ -16,8 +16,8 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <iostream>
-#include "pilal/pilal.h"
-#include "simplex/simplex.h"
+#include "pilal.h"
+#include "simplex.h"
 
 using namespace pilal;
 using namespace optimization;
@@ -41,7 +41,7 @@ int main( int argc, char* argv[]) {
             }
             
             if ( problem.has_solutions() ) {
-                if ( not problem.is_unlimited() ) 
+                if ( !problem.is_unlimited() ) 
                     problem.print_solution();
                 else
                     std::cout << "Problem is unlimited." << std::endl;
