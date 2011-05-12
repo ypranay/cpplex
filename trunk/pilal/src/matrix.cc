@@ -598,7 +598,7 @@ namespace pilal {
             }
         }
             
-        return not(a_row_is_zero);
+        return !a_row_is_zero;
 
     }
 
@@ -624,7 +624,7 @@ namespace pilal {
             }
         }
             
-        return not(a_row_is_zero);
+        return !a_row_is_zero;
     }
 
     // LU factorization with Gaussian Elimination and Partial Pivoting
