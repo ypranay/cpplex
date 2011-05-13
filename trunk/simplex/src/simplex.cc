@@ -24,7 +24,7 @@ along with C++lex.  If not, see <http://www.gnu.org/licenses/>.
 #include <algorithm>
 #include "sys/stat.h"
 
-#define TOL 0.0000000000000001
+#define TOL 0.00000000000000000001
 #define VERBOSE 0
 
 using std::vector;         
@@ -636,9 +636,9 @@ namespace optimization {
                 a_tilde = base_inverse * column_p;
             
                 if (VERBOSE) a_tilde.log("a_tilde");
-            
+
                 unlimited = a_tilde.less_equal_than(0, TOL);
-                
+
                 if (!unlimited) {
                     if (VERBOSE) std::cout << "Problem not unlimited." << std::endl;
                     
@@ -671,7 +671,7 @@ namespace optimization {
                 std::cout << "Optimal found at step " << step << "." << std::endl;
                 Matrix objective_function_base(1,(int)current_base.size(),0);
                 Matrix full_solution(solution_dimension, 1, 0);
-                
+
                 // Update dual variables
                 dual_variables = u;
                 
@@ -867,6 +867,7 @@ namespace optimization {
         if ( standard_form_problem.unlimited ) {
             unlimited = true;
         } else {    
+			unlimited = false;
             solution.resize(solution_dimension,1);
         
             vector< Variable*>::const_iterator it;                                                             
